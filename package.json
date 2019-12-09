@@ -1,0 +1,31 @@
+{
+  "name": "svada-bot",
+  "version": "1.0.0",
+  "description": "Discord bot that retrieves \"svada\" from svadageneratoren.no. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sindrekjr/svada-bot.git"
+  },
+  "keywords": [
+    "svada",
+    "chat",
+    "gibberish",
+    "discordjs",
+    "nodejs"
+  ],
+  "author": "sindrekjr",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/sindrekjr/svada-bot/issues"
+  },
+  "homepage": "https://github.com/sindrekjr/svada-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+    "discord.js-commando": "^0.10.0",
+    "phantom": "^6.3.0"
+  }
+}
