@@ -17,3 +17,8 @@ To configure and run this code with an actual bot you need to create a file conf
   }
 }
 ```
+
+## Relevant
+### Documentation
+* [discord.js](https://discord.js.org/#/docs/main/stable/general/welcome)
+* [discord.js-commando](https://discord.js.org/#/docs/commando/master/general/welcome)
