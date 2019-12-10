@@ -13,7 +13,8 @@ To configure and run this code with an actual bot you need to create a file conf
 {
   "BOT": {
     "_TOKEN": "", // Secret bot token granted by Discord
-    "_OWNERS": [] // Discord User IDs (18-digit integers)
+    "_OWNERS": [], // Discord User IDs (18-digit integers)
+    "_PREFIX": "/"
   }
 }
 ```

@@ -6,7 +6,7 @@ const translate = require('translate');
 module.exports = (config) => {
     const bot = new CommandoClient({
         owners: config.BOT._OWNERS,
-        commandPrefix: '/',
+        commandPrefix: config.BOT._PREFIX || '/',
         disableEveryone: true,
         unknownCommandResponse: false
     });
