@@ -12,47 +12,34 @@ module.exports = class Svada extends Command {
             description: 'Henter svada fra svadagenerator.no.',
             args: [
                 {
-                    key: 'content',
+                    key: 'typ',
                     type: 'string',
                     prompt: 'Definer type svada.',
-                    default: 'generell',
-                    /*oneOf: [
-                        'generell',
-                        'arkiv',
-                        'bistand',
-                        'forsikring',
-                        'forsvar',
-                        'helse',
-                        'klima',
-                        'plan',
-                        'bygge',
-                        'mat',
-                        'universitet',
-                        'høgskole',
-                        'skole'
-                    ]*/
+                    default: 'generell'
                 }
             ]
         });
+        
+        this.translate = client.translate; 
     }
 
-    run(msg, {content}) {
-        this.get(this.typeToParam(content), svada => {
+    run(msg, {typ}) {
+        this.get(this.typeToParam(typ), svada => {
             return msg.say(svada);
         });
     }
 
-    get(type, callback) {
+    get(typ, callback) {
         phantom.create().then(function(instance) {
             return instance.createPage();
         }).then(function(page) {
-            page.open('http://svadagenerator.no/?type=' + type).then(function(status) {
+            let URL = `http://svadagenerator.no/${(typ) ? `?type=${typ}` : ''}`;
+            page.open(URL).then(function(status) {
                 if (status === 'success') {
                     page.includeJs('http://svadagenerator.no/js/svadagenerator/svadagenerator.js').then(function () {
                         page.evaluate(function () {
                             return document.getElementById('sentence').innerHTML;
                         }).then(function (sentence) {
-                            console.log(type + ": " + sentence);
                             callback(sentence);
                         });
                     });
